@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>599</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralBaseWidget">
+   <widget class="QLineEdit" name="fileDirectory_Text">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>31</y>
+      <width>571</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Folder To Convert :</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="browse_Btn">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>30</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Browse</string>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="progressBar">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>522</y>
+      <width>731</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="format">
+     <string>%p%</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>521</y>
+      <width>47</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Progress:</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="filesToConvert_List">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>80</y>
+      <width>331</width>
+      <height>192</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>331</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Files to Convert</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>60</y>
+      <width>331</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Files to Exclude</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="filesToExclue_List">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>80</y>
+      <width>331</width>
+      <height>192</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="exclute_Btn">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>160</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Move -&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="include_Btn">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>190</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;- Move</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="start_Btn">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>550</y>
+      <width>701</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Start Conversion Process</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>290</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Convert From</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>290</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>to</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="convertTo_Cbox">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>290</y>
+      <width>211</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>JPG</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>PNG</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>GIF</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>BMP</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>EMF</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>WMF</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>EXIF</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>TIFF</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>AVIF</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>WEBP</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="convertFrom_Cbox">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>290</y>
+      <width>211</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>10</number>
+    </property>
+    <item>
+     <property name="text">
+      <string>JPG</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>PNG</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>GIF</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>BMP</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>EMF</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>WMF</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>EXIF</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>TIFF</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>AVIF</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>WEBP</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>All Supported Formats</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>280</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string> Uppercase Ext.</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="isAdvanced_Grp">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>320</y>
+      <width>781</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Advanced Conversion</string>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+    <widget class="QCheckBox" name="isLoseless_Cbox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>121</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Loseless</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="quality_Sbox">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>20</y>
+       <width>61</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>100</number>
+     </property>
+     <property name="stepType">
+      <enum>QAbstractSpinBox::DefaultStepType</enum>
+     </property>
+     <property name="value">
+      <number>90</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Quality:</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="loadFiles_Btn">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>130</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Load Files</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="isRecursive_Cbox">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>100</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>Subdirectories</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clearFiles_Btn">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>220</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Clear Files</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+ <slots>
+  <slot>AddFilesIntoTheList()</slot>
+  <slot>isRecursive(bool)</slot>
+ </slots>
+</ui>
