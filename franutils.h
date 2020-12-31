@@ -3,8 +3,16 @@
 
 #include <string>
 #include <QString>
+#include <Magick++.h>
+#include <QString>
+
+using namespace std;
+using namespace Magick;
+
 namespace franticUtils
 {
-    std::string qstToStd(QString qstToConv);
+	std::string QstToStd(QString qstToConv);
+	void ConvertImage(string filedir, string newext, QString destPath, string fileName);
+	void ReplaceAll(std::string& input, const std::string& from, const std::string& to);
 }
 #endif // FRANUTILS_H

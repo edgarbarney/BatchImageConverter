@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <Magick++.h>
 
 using namespace std;
 
@@ -20,11 +21,19 @@ public:
 private slots:
     void on_browse_Btn_released();
 
+	void on_browseTarget_Btn_released();
+
     void on_loadFiles_Btn_released();
 
     void on_clearFiles_Btn_released();
 
-private:
+	void on_exclude_Btn_released();
+
+	void on_include_Btn_released();
+
+	void on_start_Btn_released();
+
+	private:
     Ui::MainWindow *ui;
     //std::string filedir = "";
     QString filedir;

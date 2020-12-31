@@ -7,14 +7,17 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>599</height>
+    <height>595</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="centralBaseWidget">
-   <widget class="QLineEdit" name="fileDirectory_Text">
+   <widget class="QLineEdit" name="targetDirectory_Text">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -34,10 +37,10 @@
      </rect>
     </property>
     <property name="text">
-     <string>Folder To Convert :</string>
+     <string>Target Directory :</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="browse_Btn">
+   <widget class="QPushButton" name="browseTarget_Btn">
     <property name="geometry">
      <rect>
       <x>700</x>
@@ -94,6 +97,12 @@
       <height>192</height>
      </rect>
     </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::MultiSelection</enum>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectItems</enum>
+    </property>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
@@ -130,8 +139,11 @@
       <height>192</height>
      </rect>
     </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::MultiSelection</enum>
+    </property>
    </widget>
-   <widget class="QPushButton" name="exclute_Btn">
+   <widget class="QPushButton" name="exclude_Btn">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -218,6 +230,11 @@
     </item>
     <item>
      <property name="text">
+      <string>JPEG</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>PNG</string>
      </property>
     </item>
@@ -249,6 +266,11 @@
     <item>
      <property name="text">
       <string>TIFF</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>TIF</string>
      </property>
     </item>
     <item>
@@ -271,12 +293,23 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="editable">
+     <bool>false</bool>
+    </property>
     <property name="currentIndex">
-     <number>10</number>
+     <number>12</number>
+    </property>
+    <property name="placeholderText">
+     <string/>
     </property>
     <item>
      <property name="text">
       <string>JPG</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>JPEG</string>
      </property>
     </item>
     <item>
@@ -312,6 +345,11 @@
     <item>
      <property name="text">
       <string>TIFF</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>TIF</string>
      </property>
     </item>
     <item>
@@ -456,6 +494,42 @@
     </property>
     <property name="text">
      <string>Clear Files</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="fileDirectory_Text">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>10</y>
+      <width>571</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="browse_Btn">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>10</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Browse</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Folder To Convert :</string>
     </property>
    </widget>
   </widget>
