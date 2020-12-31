@@ -16,6 +16,7 @@ Compiler: MSVC2019
 
 * Make sure you've installed ImageMagick from the link above. If you want to use your own version, make sure you've corrected the ".pro" file.
 
+* This program is mainly developed for Windows. But It should work on Linux as well. Not sure about OSX.
 
 ## Steps after building
 
