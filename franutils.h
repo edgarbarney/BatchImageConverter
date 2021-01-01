@@ -5,6 +5,7 @@
 #include <QString>
 #include <Magick++.h>
 #include <QString>
+#include <iostream>
 
 using namespace std;
 using namespace Magick;

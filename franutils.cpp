@@ -29,14 +29,14 @@ namespace franticUtils
 		{
 			replace(filedir.begin(),filedir.end(),'/','\\');
 			ReplaceAll(filedir,"\\","\\\\");
-			printf("%s\n",filedir.c_str());
+			cout << filedir << endl;
 			image.read(filedir);
 			newext.insert(0,".");
 			image.write(QstToStd(destPath).append(fileName).append(newext));
 		}
 		catch( Exception &error_ )
 		{
-			printf("\n%s\n",error_.what());
+			cout << error_.what() << endl;
 		}
 
 	}
