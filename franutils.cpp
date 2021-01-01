@@ -23,7 +23,6 @@ namespace franticUtils
 
 	void ConvertImage(string filedir, string newext, QString destPath, string fileName)
 	{
-		InitializeMagick("");
 		Image image;
 		try
 		{
