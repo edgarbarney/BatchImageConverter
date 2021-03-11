@@ -29,48 +29,112 @@ namespace franticUtils
 		Image image;
 		try
 		{
+
+			std::list<Image> frames;
+			readImages(&frames, filedir);
+
 			std::cout << "Processing: " << filedir << std::endl;
 
-			image.read(filedir);
-
-			// Flags
-			if (flags.advanced) // Did user enable advanced opitons?
+			if(frames.size() == 1 || flags.ignoreAnim)
 			{
-				if (flags.quality != NULL)
+				image = frames.front();
+
+				// Flags
+				if (flags.advanced) // Did user enable advanced opitons?
 				{
-					image.quality(std::clamp(flags.quality, 0 , 100));
-				}
-				if (flags.flip != NULL)
-				{
-					switch (flags.flip)
+					if (flags.quality != 0)
 					{
-						case 0:
-							image.flip();
-							break;
-						case 1:
-							image.flop();
-							break;
-						case 2:
-							image.flip();
-							image.flop();
-							break;
+						image.quality(std::clamp(flags.quality, 0 , 100));
+						std::cout << "Quality: " << flags.quality << std::endl;
+					}
+					if (flags.flip != 0)
+					{
+						switch (flags.flip)
+						{
+							case 1:
+								image.flip();
+								std::cout << "Flip: " << flags.quality << std::endl;
+								break;
+							case 2:
+								image.flop();
+								std::cout << "Flop: " << flags.quality << std::endl;
+								break;
+							case 3:
+								image.flip();
+								image.flop();
+								std::cout << "FlipFlop: " << flags.quality << std::endl;
+								break;
+						}
+					}
+					if (flags.rotation != 0)
+					{
+						image.rotate(flags.rotation);
+						std::cout << "Rotate: " << flags.quality << std::endl;
+					}
+					if (flags.negate != 0)
+					{
+						(flags.negate == 1) ? image.negate() : image.negate(true);
 					}
 				}
-				if (flags.rotation != NULL)
-				{
-					image.rotate(flags.rotation);
-				}
-				if (flags.negate != NULL)
-				{
-					(flags.negate == 0) ? image.negate() : image.negate(true);
-				}
+				// Flags End
+				newext.insert(0,".");
+				std::string finalfile = QstToStd(destPath).append("\\").append(RemoveExtFromFilename(fileName)).append(newext);
+				if (!std::filesystem::exists(finalfile) || overwrite)
+					image.write(finalfile);
 			}
-			// Flags End
+			else
+			{
+				for(Image& _image : frames)
+				{
+					// Flags
+					if (flags.advanced) // Did user enable advanced opitons?
+					{
+						if (flags.quality != 0)
+						{
+							_image.quality(std::clamp(flags.quality, 0 , 100));
+							std::cout << "Quality: " << flags.quality << std::endl;
+						}
+						if (flags.flip != 0)
+						{
+							switch (flags.flip)
+							{
+								case 1:
+									_image.flip();
+									std::cout << "Flip: " << flags.quality << std::endl;
+									break;
+								case 2:
+									_image.flop();
+									std::cout << "Flop: " << flags.quality << std::endl;
+									break;
+								case 3:
+									_image.flip();
+									_image.flop();
+									std::cout << "FlipFlop: " << flags.quality << std::endl;
+									break;
+							}
+						}
+						if (flags.rotation != 0)
+						{
+							image.rotate(flags.rotation);
+							std::cout << "Rotate: " << flags.quality << std::endl;
+						}
+						if (flags.negate != 0)
+						{
+							(flags.negate == 1) ? _image.negate() : _image.negate(true);
+						}
+					}
+					// Flags End
+				}
+				newext.insert(0,".");
+				std::string finalfile = QstToStd(destPath).append("\\").append(RemoveExtFromFilename(fileName)).append(newext);
+				if (!std::filesystem::exists(finalfile) || overwrite)
+				{
+					writeImages(frames.begin(), frames.end(), finalfile);
+				}
 
-			newext.insert(0,".");
-			std::string finalfile = QstToStd(destPath).append("\\").append(RemoveExtFromFilename(fileName)).append(newext);
-			if (!std::filesystem::exists(finalfile) || overwrite)
-				image.write(finalfile);
+			}
+
+
 		}
 		catch( Exception &error_ )
 		{

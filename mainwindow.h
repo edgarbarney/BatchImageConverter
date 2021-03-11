@@ -35,6 +35,14 @@ private slots:
 
 	void on_start_Btn_released();
 
+	void on_quality_Cbox_stateChanged(int arg1);
+
+	void on_flip_Chbox_stateChanged(int arg1);
+
+	void on_rotation_Chbox_stateChanged(int arg1);
+
+	void on_negate_Chbox_stateChanged(int arg1);
+
 	private:
     Ui::MainWindow *ui;
 

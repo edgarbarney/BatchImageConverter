@@ -17,12 +17,13 @@ namespace franticUtils
 {
 	typedef struct convFlags // Conversion flags
 	{
-		// If nullable, null means don't do it
+		// If nullable, 0 means don't do it
 		bool advanced;			// Did user enable advanced opitons?
 		int quality;			// Nullable - 1-100 JPEG Quality
-		unsigned short flip;	// Nullable - 0=flip (v), 1=flop (h), 2=both
+		unsigned short flip;	// Nullable - 1=flip (v), 2=flop (h), 3=both
 		double rotation;		// Nullable - Rotation in degrees. Counter Clockwise
-		unsigned short negate;	// Nullable - 0=Invert Volors, 1=Invert Grayscale Only
+		unsigned short negate;	// Nullable - 1=Invert Volors, 2=Invert Grayscale Only
+		bool ignoreAnim;		// Should we ignore animations (GIFs etc.)?
 	} convFlags;
 
 	std::string QstToStd(QString qstToConv);

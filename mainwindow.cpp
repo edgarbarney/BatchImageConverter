@@ -181,25 +181,30 @@ void MainWindow::on_start_Btn_released()
 
 convFlags MainWindow::CheckFlags()
 {
-	// Did user enable advanced opitons?
-	bool _advanced			= ui->isAdvanced_Grp->isChecked();
 
-	int _quality			= NULL;	// Nullable - 1-100 JPEG Quality
-	unsigned short _flip	= NULL;	// Nullable - 0=flip (v), 1=flop (h), 2=both
-	double _rotation		= NULL;	// Nullable - Rotation in degrees. Counter Clockwise
-	unsigned short _negate	= NULL;	// Nullable - 0=Invert Volors, 1=Invert Grayscale Only
+	bool _advanced			= false;	// Did user enable advanced opitons?
+	int _quality			= 0;		// Nullable - 1-100 JPEG Quality
+	unsigned short _flip	= 0;		// Nullable - 1=flip (v), 2=flop (h), 3=both
+	double _rotation		= 0.0f;		// Nullable - Rotation in degrees. Counter Clockwise
+	unsigned short _negate	= 0;		// Nullable - 1=Invert Volors, 2=Invert Grayscale Only
+	bool _ignoreAnim		= false;	// Should we ignore animations (GIFs etc.)?
 
-	// TODO: Make quality setting toggle. Its not nullable. For now.
-	_quality = ui->quality_Sbox->value();
 
-	if (ui->flip_Cbox->currentIndex() != 0)
-		_flip = ui->flip_Cbox->currentIndex() -1;
+	_advanced = ui->isAdvanced_Grp->isChecked();
 
-	// TODO: Make rotation setting toggle. Its not nullable. For now.
-	_rotation = ui->rotation_Sbox->value();
+	if (ui->quality_Cbox->isChecked())
+		_quality = ui->quality_Sbox->value();
 
-	if (ui->flip_Cbox->currentIndex() != 0)
-		_negate = ui->ngate_Cbox->currentIndex() -1;
+	if (ui->flip_Chbox->isChecked())
+		_flip = ui->flip_Cbox->currentIndex() +1;
+
+	if (ui->rotation_Chbox->isChecked())
+		_rotation = ui->rotation_Sbox->value();
+
+	if (ui->negate_Chbox->isChecked())
+		_negate = ui->negate_Cbox->currentIndex() +1;
+
+	_ignoreAnim = ui->noAnim_Chbox->isChecked();
 
 
 	convFlags cflagz
@@ -209,7 +214,28 @@ convFlags MainWindow::CheckFlags()
 		_flip,				// unsigned short flip;
 		_rotation,			// double rotation;
 		_negate,			// unsigned short negate;
+		_ignoreAnim,		// bool ignoreAnim;
 	};
 
 	return cflagz;
+}
+
+void MainWindow::on_quality_Cbox_stateChanged(int arg1)
+{
+		ui->quality_Sbox->setEnabled(arg1);
+}
+
+void MainWindow::on_flip_Chbox_stateChanged(int arg1)
+{
+		ui->flip_Cbox->setEnabled(arg1);
+}
+
+void MainWindow::on_rotation_Chbox_stateChanged(int arg1)
+{
+		ui->rotation_Sbox->setEnabled(arg1);
+}
+
+void MainWindow::on_negate_Chbox_stateChanged(int arg1)
+{
+		ui->negate_Cbox->setEnabled(arg1);
 }
