@@ -405,19 +405,6 @@
     <property name="checked">
      <bool>true</bool>
     </property>
-    <widget class="QCheckBox" name="isLoseless_Cbox">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>40</y>
-       <width>121</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Loseless</string>
-     </property>
-    </widget>
     <widget class="QSpinBox" name="quality_Sbox">
      <property name="geometry">
       <rect>
@@ -426,6 +413,9 @@
        <width>61</width>
        <height>22</height>
       </rect>
+     </property>
+     <property name="statusTip">
+      <string>Compression Quality. Use 100 for maximum quality OR uncompressed formats.</string>
      </property>
      <property name="minimum">
       <number>1</number>
@@ -451,6 +441,151 @@
      </property>
      <property name="text">
       <string>Quality:</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="flip_Cbox">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>50</y>
+       <width>151</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="statusTip">
+      <string>Flip Settings</string>
+     </property>
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+     <item>
+      <property name="text">
+       <string>Don't Flip</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Vertical</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Horizontal</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Both</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Flip:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Rotation:</string>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="rotation_Sbox">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>80</y>
+       <width>61</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="statusTip">
+      <string>Rotate the image x degrees in Counter-Clockwise.</string>
+     </property>
+     <property name="decimals">
+      <number>5</number>
+     </property>
+     <property name="maximum">
+      <double>360.000000000000000</double>
+     </property>
+     <property name="stepType">
+      <enum>QAbstractSpinBox::DefaultStepType</enum>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="ngate_Cbox">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>110</y>
+       <width>151</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="statusTip">
+      <string>Flip Settings</string>
+     </property>
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+     <item>
+      <property name="text">
+       <string>Don't Flip</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Colors</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Grayscale Only</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Both</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Negate:</string>
      </property>
     </widget>
    </widget>
@@ -530,6 +665,22 @@
     </property>
     <property name="text">
      <string>Folder To Convert :</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="doOverwrite_Cbox">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>250</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>Overwrite</string>
     </property>
    </widget>
   </widget>

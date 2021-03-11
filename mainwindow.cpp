@@ -5,11 +5,9 @@
 #include <iterator>
 #include <QFileDialog>
 #include <filesystem>
-#include <franutils.h>
 #include <algorithm>
 
 using namespace std;
-using namespace franticUtils;
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainWindow)
 {
@@ -136,7 +134,6 @@ void MainWindow::AddFilesIntoTheList()
 	}
 }
 
-
 void MainWindow::on_loadFiles_Btn_released()
 {
 	AddFilesIntoTheList();
@@ -177,7 +174,42 @@ void MainWindow::on_start_Btn_released()
 			string extStr = QstToStd(ui->convertTo_Cbox->currentText());
 			//extStr.insert(0,".");
 			const filesystem::path path = QstToStd(ui->filesToConvert_List->item(i)->text());
-			ConvertImage(QstToStd(ui->filesToConvert_List->item(i)->text()), extStr, ui->targetDirectory_Text->text(),path.filename().u8string());
+			ConvertImage(QstToStd(ui->filesToConvert_List->item(i)->text()), extStr, ui->targetDirectory_Text->text(),path.filename().u8string(), ui->doOverwrite_Cbox->isChecked(), CheckFlags());
 		}
 	}
+}
+
+convFlags MainWindow::CheckFlags()
+{
+	// Did user enable advanced opitons?
+	bool _advanced			= ui->isAdvanced_Grp->isChecked();
+
+	int _quality			= NULL;	// Nullable - 1-100 JPEG Quality
+	unsigned short _flip	= NULL;	// Nullable - 0=flip (v), 1=flop (h), 2=both
+	double _rotation		= NULL;	// Nullable - Rotation in degrees. Counter Clockwise
+	unsigned short _negate	= NULL;	// Nullable - 0=Invert Volors, 1=Invert Grayscale Only
+
+	// TODO: Make quality setting toggle. Its not nullable. For now.
+	_quality = ui->quality_Sbox->value();
+
+	if (ui->flip_Cbox->currentIndex() != 0)
+		_flip = ui->flip_Cbox->currentIndex() -1;
+
+	// TODO: Make rotation setting toggle. Its not nullable. For now.
+	_rotation = ui->rotation_Sbox->value();
+
+	if (ui->flip_Cbox->currentIndex() != 0)
+		_negate = ui->ngate_Cbox->currentIndex() -1;
+
+
+	convFlags cflagz
+	{
+		_advanced,			// bool advanced;
+		_quality,			// int quality;
+		_flip,				// unsigned short flip;
+		_rotation,			// double rotation;
+		_negate,			// unsigned short negate;
+	};
+
+	return cflagz;
 }

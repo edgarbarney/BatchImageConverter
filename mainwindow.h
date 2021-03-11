@@ -3,8 +3,10 @@
 
 #include <QMainWindow>
 #include <Magick++.h>
+#include <franutils.h>
 
 using namespace std;
+using namespace franticUtils;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -35,8 +37,14 @@ private slots:
 
 	private:
     Ui::MainWindow *ui;
-    //std::string filedir = "";
-    QString filedir;
-    void AddFilesIntoTheList();
+
+	void AddFilesIntoTheList();
+
+	convFlags CheckFlags();
+
+	QString filedir;
+
+
+
 };
 #endif // MAINWINDOW_H
