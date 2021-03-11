@@ -4,6 +4,8 @@ This is a project that I'm working on for understanding the basics of the Qt fra
 
 You can find latest releases [here](https://github.com/edgarbarney/BatchImageConverter/releases).
 
+![FBDIC V0.1](https://i.imgur.com/IbtBEJl.jpg)
+
 ## Project General Info
 
 Current Qt Version: 6.0.0
