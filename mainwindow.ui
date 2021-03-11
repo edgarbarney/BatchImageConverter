@@ -393,6 +393,9 @@
       <height>191</height>
      </rect>
     </property>
+    <property name="statusTip">
+     <string/>
+    </property>
     <property name="title">
      <string>Advanced Conversion</string>
     </property>
@@ -403,7 +406,7 @@
      <bool>true</bool>
     </property>
     <property name="checked">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <widget class="QSpinBox" name="quality_Sbox">
      <property name="enabled">
@@ -626,6 +629,19 @@
      </property>
      <property name="text">
       <string>Ignore Animations</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>160</y>
+       <width>361</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>NOTE: ENABLING ADVANCED OPTIONS MAY SLOW DOWN THE PROCESS</string>
      </property>
     </widget>
    </widget>
